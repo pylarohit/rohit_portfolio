@@ -1,0 +1,330 @@
+/* ==========================================================================
+   MY SKILLSETS - TECH STACK STYLES
+   Inspired by clean modern bento UI layout with smooth dynamic interactions
+   ========================================================================== */
+
+:root {
+    --bg-main: #F4F6FB;
+    --card-bg: #F8FAFD;
+    --card-hover-bg: #FFFFFF;
+    --border-color: #EAEEF5;
+    --border-hover: #D4E0FC;
+    
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --title-blue: #4F75FF;
+    --title-blue-glow: rgba(79, 117, 255, 0.2);
+    
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    
+    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 16px 36px rgba(79, 117, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Core */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 60px 20px 100px 20px;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Decorative Background Accents (From user screenshot bottom right blue overlay) */
+.bg-shape-bottom-right {
+    position: fixed;
+    bottom: -80px;
+    right: -80px;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(135deg, #4F75FF 0%, #3B62F6 100%);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.bg-shape-top-left {
+    position: fixed;
+    top: -120px;
+    left: -120px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(79, 117, 255, 0.08) 0%, rgba(244, 246, 251, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Section */
+.section-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--title-blue);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+/* Category Filter Tabs */
+.filter-tabs {
+    display: inline-flex;
+    background: #EAEFF8;
+    padding: 6px;
+    border-radius: 40px;
+    gap: 4px;
+}
+
+.tab-btn {
+    border: none;
+    background: transparent;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background: #FFFFFF;
+    color: var(--title-blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Main Layout Wrapper */
+.tech-stack-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+/* Stack Category Block */
+.stack-category {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.stack-category.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.category-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #8A99AD;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* General Tech Card Styling */
+.tech-card {
+    background-color: var(--card-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.tech-card:hover {
+    background-color: var(--card-hover-bg);
+    border-color: var(--border-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Featured Large Cards (React, Node, Mongo, Git) */
+.card-featured {
+    height: 100%;
+    min-height: 280px;
+    padding: 36px 24px;
+}
+
+.card-featured .icon-wrapper {
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.card-featured:hover .icon-wrapper {
+    transform: scale(1.08);
+}
+
+.card-featured .tech-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.tech-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: #EDF2FA;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+
+/* React Animation */
+.react-icon-anim svg {
+    animation: spinReact 20s linear infinite;
+}
+
+@keyframes spinReact {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Sub Grid for Secondary Small Cards (2x2 Grid) */
+.sub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .sub-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Cards */
+.card-small {
+    min-height: 145px;
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+}
+
+.card-small .icon-wrapper {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+    transition: var(--transition);
+}
+
+.card-small:hover .icon-wrapper {
+    transform: scale(1.12);
+}
+
+.card-small .tech-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+/* Express Logo Style matching screenshot ('ex' lowercase text) */
+.express-text-logo {
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'Times New Roman', serif;
+    color: #1E293B;
+    letter-spacing: -0.05em;
+}
+
+/* REST API Badge Style */
+.api-badge {
+    background: #E0E7FF;
+    color: #3730A3;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 12px;
+}
+
+/* Subtle glow effects for cards */
+.card-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--title-blue-glow) 0%, rgba(255,255,255,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.tech-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .filter-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
