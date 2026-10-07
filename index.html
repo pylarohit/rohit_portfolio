@@ -1809,7 +1809,7 @@
         <div></div>
         <main class="preloader-content">
             <div>
-                <h1 class="preloader-title">ROHIT PYLA</h1>
+                <h1 id="preloader-title" class="preloader-title">ROHIT PYLA,</h1>
                 <span class="preloader-cursor"></span>
             </div>
             <p class="preloader-sub">FULLSTACK DEVELOPER &amp; BUILDER</p>
@@ -2555,25 +2555,32 @@
     </footer>
 
     <script>
-            // Preloader Animation Script (Smooth & Elegant Pace)
+            // Preloader Letter-by-Letter Typing Script
             (function () {
-                let count = 0;
+                const titleEl = document.getElementById('preloader-title');
                 const counterEl = document.getElementById('preloader-counter');
                 const preloader = document.getElementById('preloader');
 
-                const timer = setInterval(function () {
-                    count += Math.floor(Math.random() * 3) + 1;
-                    if (count >= 100) {
-                        count = 100;
-                        if (counterEl) counterEl.innerText = count;
-                        clearInterval(timer);
+                const fullText = "ROHIT PYLA,";
+                let charIndex = 0;
+
+                if (titleEl) titleEl.innerText = "";
+
+                const typeInterval = setInterval(function () {
+                    charIndex++;
+                    if (titleEl) titleEl.innerText = fullText.slice(0, charIndex);
+
+                    let progress = Math.min(100, Math.floor((charIndex / fullText.length) * 100));
+                    if (counterEl) counterEl.innerText = progress;
+
+                    if (charIndex >= fullText.length) {
+                        clearInterval(typeInterval);
+                        if (counterEl) counterEl.innerText = 100;
                         setTimeout(function () {
                             if (preloader) preloader.classList.add('slide-out');
-                        }, 450);
-                    } else {
-                        if (counterEl) counterEl.innerText = count;
+                        }, 250);
                     }
-                }, 35);
+                }, 65);
             })();
 
         // Know More Button Reveal Physics Pills Section
