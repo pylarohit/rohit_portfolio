@@ -2555,25 +2555,25 @@
     </footer>
 
     <script>
-            // Preloader Animation Script
+            // Preloader Animation Script (Smooth & Elegant Pace)
             (function () {
                 let count = 0;
                 const counterEl = document.getElementById('preloader-counter');
                 const preloader = document.getElementById('preloader');
 
                 const timer = setInterval(function () {
-                    count += Math.floor(Math.random() * 8) + 4;
+                    count += Math.floor(Math.random() * 3) + 1;
                     if (count >= 100) {
                         count = 100;
                         if (counterEl) counterEl.innerText = count;
                         clearInterval(timer);
                         setTimeout(function () {
                             if (preloader) preloader.classList.add('slide-out');
-                        }, 350);
+                        }, 450);
                     } else {
                         if (counterEl) counterEl.innerText = count;
                     }
-                }, 25);
+                }, 35);
             })();
 
         // Know More Button Reveal Physics Pills Section
